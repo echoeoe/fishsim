@@ -2,8 +2,26 @@ html{
     font-family: 'Verdana', sans-serif;
 }
 
+#display{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 1px solid black; 
+}
+
+#stats{
+    border: 3px solid orange;
+    width: 30%;
+}
+
 #fish-img{
-    width: 40%;
-    height: 30%;
+    width: 30%;
+    border: 3px solid green;
+    display: block;
+}
+
+.controls{
+    gap: 10px;
+    border: 1px solid blue;
 }
 
