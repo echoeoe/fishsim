@@ -6,6 +6,11 @@ var nitrite = 0;
 var nitrate = 0;
 
 document.getElementById('day').innerHTML = day;
+document.getElementById('health').innerHTML = health;
+document.getElementById('satiety').innerHTML = satiety;
+document.getElementById('ammonia').innerHTML = ammonia;
+document.getElementById('nitrite').innerHTML = nitrite;
+document.getElementById('nitrate').innerHTML = nitrate;
 
 function feed(){
     //increase satiety - limited to once per day
