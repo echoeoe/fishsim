@@ -1,6 +1,6 @@
 var day = 0;
 var health = 100;
-var satiety = 3;
+var satiety = 1;
 var ammonia = 0;
 var nitrite = 0;
 var nitrate = 0;
@@ -14,6 +14,14 @@ document.getElementById('nitrate').innerHTML = nitrate;
 
 function feed(){
     //increase satiety - limited to once per day
+    //feeding increases satiety, disables feed button 
+    if(satiety<3){
+        satiety++;
+        document.getElementById("satiety").innerHTML = satiety;
+    }
+    //disable
+    document.getElementById("feed-btn").disabled = true;
+
 }
 
 function waterchange(changed){
@@ -22,4 +30,8 @@ function waterchange(changed){
 
 function forward(){
     //progress day, ammonia, nitrite, nitrate, satiety, health (good cond vs bad)
+    day++;
+    document.getElementById('day').innerHTML = day;
+    //re-enable feed button
+    document.getElementById("feed-btn").disabled = false;
 }
