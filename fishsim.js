@@ -21,11 +21,14 @@ function feed(){
     }
     //disable
     document.getElementById("feed-btn").disabled = true;
+    //adjust water quality
 
 }
 
 function waterchange(changed){
-    //adjust parameters ammonia, nitrite, nitrate based on tank size, amount changed
+    //adjust parameters ammonia, nitrite, nitrate based on tank size, amount changed. too much fluctuation - lower health 
+    //ask how many gallons to change
+    let gallons = prompt("How many gallons to change?");
 }
 
 function forward(){
