@@ -1,8 +1,15 @@
 var day = 0;
-var ammonia = 0;
-var nitrite = 0;
-var nitrate = 0;
-var gallons = 40;
+var nitratePerFoodGram = 198.4;
+
+class tank{
+    constructor(gal=40, ammonia=0, nitrite=0, nitrate=0){
+        this.gal = gal;
+        this.ammonia = ammonia;
+        this.nitrite = nitrite;
+        this.nitrate = nitrate;
+        this.liters = this.gal * 3.78541;
+    }
+}
 
 class fish{
     constructor(name, health=100, satiety=1){
@@ -13,18 +20,17 @@ class fish{
 }
 
 const myFish = new fish("Sashimi");
+const myTank = new tank();
 
-var liters = 40 * 3.78541;
-var nitratePerFoodGram = 198.4;
-var nitratePerFoodDay = nitratePerFoodGram / liters;
+var nitratePerFoodDay = nitratePerFoodGram / myTank.liters;
 
 document.getElementById('day').innerHTML = day;
 document.getElementById('health').innerHTML = myFish.health;
 document.getElementById('satiety').innerHTML = myFish.satiety;
-document.getElementById('ammonia').innerHTML = ammonia;
-document.getElementById('nitrite').innerHTML = nitrite;
-document.getElementById('nitrate').innerHTML = nitrate;
-document.getElementById('gallons').innerHTML = gallons;
+document.getElementById('ammonia').innerHTML = myTank.ammonia;
+document.getElementById('nitrite').innerHTML = myTank.nitrite;
+document.getElementById('nitrate').innerHTML = myTank.nitrate;
+document.getElementById('gallons').innerHTML = myTank.gal;
 document.getElementById('fishName').innerHTML = myFish.name;
 
 function feed(){
@@ -39,9 +45,9 @@ function feed(){
     //adjust water quality: assume 100g (small) goldfish, based on 40 gal
     // 2 mg/L nitrate end of day 
     // 0.45 mg/L immediate ammonia, simplify to 0 by end of day 
-    // 0.05 - 0.1 mg/L nitrite brief transient spike - realism 
-    nitrate = nitrate + nitratePerFoodDay;
-    document.getElementById('nitrate').innerHTML = nitrate.toFixed(2);
+    // 0.05 - 0.1 mg/L nitrite brief transient spike - realism
+    myTank.nitrate = myTank.nitrate + nitratePerFoodDay;
+    document.getElementById('nitrate').innerHTML = myTank.nitrate.toFixed(2);
 
 }
 
