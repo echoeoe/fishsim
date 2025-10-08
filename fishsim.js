@@ -6,6 +6,10 @@ var nitrite = 0;
 var nitrate = 0;
 var gallons = 40;
 
+var liters = 40 * 3.78541;
+var nitratePerFoodGram = 198.4;
+var nitratePerFoodDay = nitratePerFoodGram / liters;
+
 document.getElementById('day').innerHTML = day;
 document.getElementById('health').innerHTML = health;
 document.getElementById('satiety').innerHTML = satiety;
@@ -27,9 +31,9 @@ function feed(){
     // 2 mg/L nitrate end of day 
     // 0.45 mg/L immediate ammonia, simplify to 0 by end of day 
     // 0.05 - 0.1 mg/L nitrite brief transient spike - realism 
-    nitrate += 2;
-    document.getElementById('nitrate').innerHTML = nitrate;
-
+    nitrate = nitrate + nitratePerFoodDay;
+    document.getElementById('nitrate').innerHTML = nitrate.toFixed(2);
+    
 }
 
 function waterchange(changed){
