@@ -9,7 +9,7 @@ html{
     border: 1px solid black; 
 }
 
-#stats{
+#stats{ /*div*/
     border: 3px solid orange;
     width: 30%;
     font-size: 1.7vw;
@@ -26,7 +26,18 @@ html{
     border: 1px solid blue;
 }
 
-.js{
+.js{ /*the displayed js var*/
     border: 1px solid green;
 }
 
+.chem{
+        color: orange;
+}
+
+.points{
+    color: green;
+}
+
+#day{
+    color: purple;
+}
