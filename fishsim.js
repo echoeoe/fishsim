@@ -16,6 +16,7 @@ class fish{
         this.name = name;
         this.health = health;
         this.satiety = satiety; 
+        this.fedToday = false;
     }
 }
 
@@ -39,6 +40,7 @@ function feed(){
     if(myFish.satiety<3){
         myFish.satiety++;
         document.getElementById('satiety').innerHTML = myFish.satiety;
+        myFish.fedToday = true;
     }
     //disable
     document.getElementById('feed-btn').disabled = true;
@@ -63,4 +65,10 @@ function forward(){
     document.getElementById('day').innerHTML = day;
     //re-enable feed button
     document.getElementById('feed-btn').disabled = false;
+    //satiety
+    if (myFish.fedToday == false){
+        myFish.satiety -= 1;
+        document.getElementById('satiety').innerHTML = myFish.satiety; 
+    }
+    myFish.fedToday = false;
 }
