@@ -62,4 +62,15 @@ button{
     font-family: Verdana;
     font-size: 1vw;
     padding: 1vw;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+}
+
+button:hover{
+    filter: brightness(95%);
+}
+
+button:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
 }
