@@ -13,6 +13,7 @@ html{
     border: 3px solid orange;
     width: 30%;
     font-size: 1.7vw;
+    padding: 2vw;
 }
 
 #fish-img{
@@ -24,6 +25,7 @@ html{
 .controls{
     gap: 10px;
     border: 1px solid blue;
+    padding: 1.5vw;
 }
 
 .js{ /*the displayed js var*/
@@ -40,4 +42,18 @@ html{
 
 #day{
     color: purple;
+}
+
+#guide{
+    font-size: 1.5vw;
+    border: 3px solid pink;
+    padding: 2vw;
+}
+
+button{
+    background-color: peachpuff;
+    height: 3vw;
+    width: 8vw;
+    font-family: Verdana;
+    font-size: 1vw;
 }
