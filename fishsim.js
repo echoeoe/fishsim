@@ -53,10 +53,14 @@ function feed(){
 
 }
 
-function waterchange(changed){
+function waterchange(){
     //adjust parameters ammonia, nitrite, nitrate based on tank size, amount changed. too much fluctuation - lower health 
     //ask how many gallons to change
-    let gallons = prompt('How many gallons to change?');
+    var galChange = prompt('How many gallons to change?');
+    //get proportion remaining, to multiply nitrates by
+    var remainProp = 1 - (galChange / myTank.gal); 
+    myTank.nitrate = remainProp * myTank.nitrate;
+    document.getElementById('nitrate').innerHTML = myTank.nitrate.toFixed(2);
 }
 
 function forward(){
