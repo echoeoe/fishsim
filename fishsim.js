@@ -92,6 +92,12 @@ function forward(){ /* advancing the day */
         health.innerHTML = myFish.health;
     }
 
+    //cap health if nitrate over 20, slow drops to ~80 then stops decreasing
+    if (myTank.nitrate > 20 && myTank.nitrate < 40 && myFish.health > 80){
+        myFish.health -= 3;
+        health.innerHTML = myFish.health;
+    }
+
     //if health less than 1 fish is dead, stop animation, change image
     if (myFish.health < 1){
         stopAnimation();
