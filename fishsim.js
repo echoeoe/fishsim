@@ -78,7 +78,21 @@ function forward(){ /* advancing the day */
         myFish.satiety -= 1;
         document.getElementById('satiety').innerHTML = myFish.satiety; 
     }
+
+    //lower health if satiety 0 or less 
+    if (myFish.satiety <= 0){
+        myFish.health -= 30;
+        document.getElementById('health').innerHTML = myFish.health;
+    } 
+
+    //if health less than 1 fish is dead, stop animation, change image
+    if (myFish.health < 1){
+        stopAnimation();
+    }
+
+    //reset for next day 
     myFish.fedToday = false;
+    
 }
 
 //objects for animation 
@@ -93,6 +107,8 @@ let y = Math.random() * (movableTank.clientHeight - movableFish.clientHeight);
 let vx = (Math.random() * 4) - 2; 
 let vy = (Math.random() * 4) - 2;
 
+let animationId;
+
 //move fish randomly, bounce
 function animate() {
 
@@ -106,7 +122,11 @@ function animate() {
     movableFish.style.left = x + 'px';
     movableFish.style.top = y + 'px';
 
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
+}
+
+function stopAnimation(){
+    cancelAnimationFrame(animationId);
 }
 
 animate();
