@@ -91,6 +91,11 @@ function forward(){ /* advancing the day */
 
         //change image
         document.getElementById('fish-img').src = "https://echoeoe.github.io/fishsim/assets/sashimiDead.png"
+
+        //disable buttons
+        document.getElementById('feed-btn').disabled = true;
+        document.getElementById('fastfwd-btn').disabled = true;
+        document.getElementById('waterchange-btn').disabled = true;
     }
 
     //reset for next day 
