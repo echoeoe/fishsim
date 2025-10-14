@@ -58,8 +58,9 @@ const myTank = new tank();
 
 var nitratePerFoodDay = (nitratePerFoodGram * myFish.foodGrams) / myTank.liters;
 
+let health = document.getElementById('health');
 document.getElementById('day').innerHTML = day;
-document.getElementById('health').innerHTML = myFish.health;
+health.innerHTML = myFish.health;
 document.getElementById('satiety').innerHTML = myFish.satiety;
 document.getElementById('ammonia').innerHTML = myTank.ammonia;
 document.getElementById('nitrite').innerHTML = myTank.nitrite;
@@ -84,6 +85,12 @@ function forward(){ /* advancing the day */
         myFish.health -= 30;
         document.getElementById('health').innerHTML = myFish.health;
     } 
+
+    //lower health if nitrate over 40 
+    if (myTank.nitrate > 40){
+        myFish.health -= 3; //depends on hardiness
+        health.innerHTML = myFish.health;
+    }
 
     //if health less than 1 fish is dead, stop animation, change image
     if (myFish.health < 1){
