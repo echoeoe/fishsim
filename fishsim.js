@@ -67,7 +67,7 @@ document.getElementById('nitrate').innerHTML = myTank.nitrate;
 document.getElementById('gallons').innerHTML = myTank.gal;
 document.getElementById('fishName').innerHTML = myFish.name;
 
-function forward(){
+function forward(){ /* advancing the day */
     //progress day, ammonia, nitrite, nitrate, satiety, health (good cond vs bad)
     day++;
     document.getElementById('day').innerHTML = day;
@@ -80,3 +80,33 @@ function forward(){
     }
     myFish.fedToday = false;
 }
+
+//objects for animation 
+const movableFish = document.getElementById('fish-img');
+const movableTank = document.getElementById('tank');
+
+//initial fish position, random
+let x = Math.random() * (movableTank.clientWidth - movableFish.clientWidth);
+let y = Math.random() * (movableTank.clientHeight - movableFish.clientHeight);
+
+//initial velocity in pixels per frame, random [-2, 2)
+let vx = (Math.random() * 4) - 2; 
+let vy = (Math.random() * 4) - 2;
+
+//move fish randomly, bounce
+function animate() {
+
+    x += vx;
+    y += vy;
+
+    //bounce off tank sides
+    if (x <= 0 || x >= movableTank.clientWidth - movableFish.clientWidth) vx = -vx;
+    if (y <= 0 || y >= movableTank.clientHeight - movableFish.clientHeight) vy = -vy;
+
+    movableFish.style.left = x + 'px';
+    movableFish.style.top = y + 'px';
+
+    requestAnimationFrame(animate);
+}
+
+animate();

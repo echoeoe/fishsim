@@ -21,11 +21,16 @@ html{
 #tank{
     border: 3px solid mediumseagreen;
     background-color: azure;
+    position: relative;
+    height: 25vw;
+    width: 55vw;
 }
 
 #fish-img{
     width: 30%;
     display: block;
+    position: absolute;
+    width: 7vw;
 }
 
 .controls{
