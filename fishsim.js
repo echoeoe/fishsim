@@ -127,6 +127,14 @@ function animate() {
     if (x <= 0 || x >= movableTank.clientWidth - movableFish.clientWidth) vx = -vx;
     if (y <= 0 || y >= movableTank.clientHeight - movableFish.clientHeight) vy = -vy;
 
+    //change image to face correct direction 
+    if (vx > 0){
+        movableFish.src = "https://echoeoe.github.io/fishsim/assets/sashimiRight.png"
+    }
+    else{
+        movableFish.src = "https://echoeoe.github.io/fishsim/assets/sashimi2.png"
+    }
+
     movableFish.style.left = x + 'px';
     movableFish.style.top = y + 'px';
 
