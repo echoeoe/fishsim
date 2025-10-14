@@ -88,6 +88,9 @@ function forward(){ /* advancing the day */
     //if health less than 1 fish is dead, stop animation, change image
     if (myFish.health < 1){
         stopAnimation();
+
+        //change image
+        document.getElementById('fish-img').src = "https://echoeoe.github.io/fishsim/assets/sashimiDead.png"
     }
 
     //reset for next day 
