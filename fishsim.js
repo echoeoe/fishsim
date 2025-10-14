@@ -159,3 +159,17 @@ function stopAnimation(){
 }
 
 animate();
+
+//make ASD keys trigger buttons
+document.addEventListener('keydown', function(event) {
+    switch (event.key){
+        case 'a':
+            document.getElementById('feed-btn').click();
+            break;
+        case 's':
+            document.getElementById('fastfwd-btn').click();
+            break;
+        case 'd':
+            document.getElementById('waterchange-btn').click();
+    }
+});
