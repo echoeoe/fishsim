@@ -8,13 +8,21 @@ class tank{
         this.nitrite = nitrite;
         this.nitrate = nitrate;
         this.liters = this.gal * 3.78541;
+        this.changedToday = 0;
     }
-    waterchange(){
+    waterchange(){               
+
     //adjust parameters ammonia, nitrite, nitrate based on tank size, amount changed. too much fluctuation - lower health 
     //ask how many gallons to change
     var galChange = prompt('How many gallons to change?');
-    //get proportion remaining, to multiply nitrates by
-    if (!isNaN(galChange)){
+
+    if (!isNaN(galChange)){ //is num 
+
+        //add to tank changedToday 
+        myTank.changedToday += Number(galChange); 
+        console.log(myTank.changedToday);
+
+        //get proportion remaining, to multiply nitrates by
         var remainProp = 1 - (galChange / this.gal); 
         this.nitrate = remainProp * this.nitrate;
         document.getElementById('nitrate').innerHTML = this.nitrate.toFixed(2);
@@ -113,6 +121,7 @@ function forward(){ /* advancing the day */
 
     //reset for next day 
     myFish.fedToday = false;
+    myTank.changedToday = 0;
     
 }
 
