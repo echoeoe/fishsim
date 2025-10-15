@@ -22,7 +22,7 @@ html{
     border: 3px solid mediumseagreen;
     background-color: azure;
     position: relative;
-    height: 30vw;
+    height:33vw;
     width: 55vw;
 }
 
@@ -31,6 +31,7 @@ html{
     display: block;
     position: absolute;
     width: 7vw;
+    height: 4.5vw;
 }
 
 .controls{
@@ -75,7 +76,7 @@ button:hover{
     filter: brightness(95%);
 }
 
-button:active {
+button:active, button.active {
   box-shadow: 0 1px #666;
-  transform: translateY(4px);
+  transition: transform 0.1s, translateY(4px);
 }

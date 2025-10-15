@@ -160,16 +160,20 @@ function stopAnimation(){
 
 animate();
 
-//make ASD keys trigger buttons
+//make ASD keys trigger buttons, with press effect 
 document.addEventListener('keydown', function(event) {
+    let btn;
     switch (event.key){
         case 'a':
-            document.getElementById('feed-btn').click();
+            btn = document.getElementById('feed-btn');
             break;
         case 's':
-            document.getElementById('fastfwd-btn').click();
+            btn = document.getElementById('fastfwd-btn');
             break;
         case 'd':
-            document.getElementById('waterchange-btn').click();
+            btn = document.getElementById('waterchange-btn');
     }
+    btn.classList.add('active');
+    btn.click();
+    setTimeout(() => btn.classList.remove('active'), 150);
 });
