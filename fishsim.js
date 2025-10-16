@@ -137,6 +137,18 @@ function forward(){ /* advancing the day */
         document.getElementById('waterchange-btn').disabled = true;
     }
 
+    //ideal conditions - recover health (fed today, nitrate < 20, nitrate drop < 10, health > 50)
+    if (myFish.fedToday && myTank.nitrate < 20 && myTank.nChangedToday < 10 && myFish.health < 100 && myFish.health > 30){
+        myFish.health += 5;
+        health.innerHTML = myFish.health;
+    }
+
+    //suboptimal conditions - recover health slower with cap at 80
+    else if (myFish.fedToday && myTank.nitrate < 40 && myFish.health < 80){
+        myFish.health += 2.5;
+        health.innerHTML = myFish.health;
+    }
+
     //reset for next day 
     myFish.fedToday = false;
     myTank.nChangedToday = 0;
