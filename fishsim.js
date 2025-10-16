@@ -108,6 +108,10 @@ function forward(){ /* advancing the day */
     }
 
     //drop health if nitrate changed today > 10 
+    if (myTank.nChangedToday > 10){
+        myFish.health -= 50;
+        health.innerHTML = myFish.health;
+    }
 
     //if health less than 1 fish is dead, stop animation, change image
     if (myFish.health < 1){
