@@ -117,8 +117,7 @@ function forward(){ /* advancing the day */
         if (myTank.nChangedToday > 10){
             let over = Math.round(myTank.nChangedToday - 10);
             let extraDamage = Math.random() * over;
-            myFish.health -= extraDamage;
-            console.log("extraDamage", extraDamage);
+            myFish.health -= Math.round(extraDamage);
         }
 
         health.innerHTML = Math.round(myFish.health);
