@@ -109,8 +109,19 @@ function forward(){ /* advancing the day */
 
     //drop health if nitrate changed today > 10 
     if (myTank.nChangedToday > 10){
+        
+        //drop health a lot
         myFish.health -= 50;
-        health.innerHTML = myFish.health;
+
+        //drop more for each mg/L over 10 
+        if (myTank.nChangedToday > 10){
+            let over = Math.round(myTank.nChangedToday - 10);
+            let extraDamage = Math.random() * over;
+            myFish.health -= extraDamage;
+            console.log("extraDamage", extraDamage);
+        }
+
+        health.innerHTML = Math.round(myFish.health);
     }
 
     //if health less than 1 fish is dead, stop animation, change image
