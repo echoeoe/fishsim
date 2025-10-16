@@ -8,7 +8,7 @@ class tank{
         this.nitrite = nitrite;
         this.nitrate = nitrate;
         this.liters = this.gal * 3.78541;
-        this.changedToday = 0;
+        this.nChangedToday = 0;
     }
     waterchange(){               
 
@@ -18,14 +18,15 @@ class tank{
 
     if (!isNaN(galChange)){ //is num 
 
-        //add to tank changedToday 
-        myTank.changedToday += Number(galChange); 
-        console.log(myTank.changedToday);
+        let oldNitrate = this.nitrate;
 
         //get proportion remaining, to multiply nitrates by
         var remainProp = 1 - (galChange / this.gal); 
         this.nitrate = remainProp * this.nitrate;
         document.getElementById('nitrate').innerHTML = this.nitrate.toFixed(2);
+
+        //add to tank nitrate changed today
+        this.nChangedToday += (oldNitrate - this.nitrate);
     }
 }
 }
@@ -106,6 +107,8 @@ function forward(){ /* advancing the day */
         health.innerHTML = myFish.health;
     }
 
+    //drop health if nitrate changed today > 10 
+
     //if health less than 1 fish is dead, stop animation, change image
     if (myFish.health < 1){
         stopAnimation();
@@ -121,7 +124,7 @@ function forward(){ /* advancing the day */
 
     //reset for next day 
     myFish.fedToday = false;
-    myTank.changedToday = 0;
+    myTank.nChangedToday = 0;
     
 }
 
