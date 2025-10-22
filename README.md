@@ -16,7 +16,7 @@ Technical Skills Demonstrated
 - user input validation 
 - collision detection implementation 
 - JavaScript event listener implementation
-- object-oriented programming demonstrated through classes, instances, and attributes 
+- object-oriented programming demonstrated through classes, contructors, instances, and attributes 
 - use of CSS pseudoclass
 - use of CSS class selector
 - understanding relative and absolute positioning 
