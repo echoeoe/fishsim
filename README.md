@@ -9,3 +9,14 @@ Parameters include
 - ammonia
 - nitrite
 - nitrate
+
+Technical Skills Demonstrated
+- Javascript DOM manipulation
+- use of requestAnimationFrame
+- user input validation 
+- collision detection implementation 
+- JavaScript event listener implementation
+- object-oriented programming demonstrated through classes, instances, and attributes 
+- use of CSS pseudoclass
+- use of CSS class selector
+- understanding relative and absolute positioning 
